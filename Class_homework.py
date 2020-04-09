@@ -121,3 +121,49 @@ class circle (object):
         
         area_value = self.rad**2*pi_value
         print(f'The area of the circle is: {round(area_value,2)}')
+        
+'''
+Question 3
+Create a class containing two dictionaries:suit_dict,values_dict.
+User input the shotout of the suit and value.
+Class function can return info about card or suit or value of card.
+'''        
+        
+
+class card(object):
+    suit_dict = {'s':'spades ♠','h': 'hearts ♥','d': 'diamonds ♦','c':'clubs ♣'}
+    values_dict = {'2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9','10':'10','j':'Jack or Knave','q':'Queen','k':'King','a':'Ace'}
+    
+    def __init__(self,suit,value):
+        if (self.suit_dict.get(suit)) != None:
+            self.suit = suit
+        else:
+            print(f'You entered wrong shortcut of suits,'\
+                  f'this are all posibilities: ')
+            for key in self.suit_dict:
+                print(*key,end=" , ")
+        
+        
+        if (self.values_dict.get(value)) != None :
+            self.value = value
+            
+        else:
+            print(f'\nYou entered wrong shortcut of value,'\
+                  f'this are all posibilities: ')
+            
+            for key in self.values_dict:
+                print(*str(key),end=" , ")
+                
+            print("\nPlease enter a value in quote/marks.")
+        
+
+        
+    def info(self):
+        print('Your card suit is: {} and value: {}'.format(self.suit_dict[self.suit],self.values_dict[self.value]))
+        
+    def get_suits(self):
+        print(f'Your card suit is: {self.suit_dict[self.suit]}')
+        
+    def get_values(self):
+        print(f'Your card value is: {self.values_dict[self.value]}')
+        
